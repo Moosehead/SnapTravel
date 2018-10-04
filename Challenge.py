@@ -2,14 +2,17 @@ hotelOptions = []
 desiredPlace = []
 
 def hotelFinder(N, Q):
+  #Inputs for N
   print("Enter city, supplier, and price: ")
   for i in range(N):
     city, supplier, price = input().split(",")
     hotelOptions.append((city, supplier, float(price)))
+  #Inputs for Q
   print("Enter city and days until check-in: ")
   for j in range(Q):
     city2, daysUntCheckin = input().split(",")
     desiredPlace.append((city2, int(daysUntCheckin)))
+  #Calculations
   for k in range(Q):
     prices = []
     for l in range(N):
@@ -24,6 +27,7 @@ def hotelFinder(N, Q):
           prices.append(format(1.1 * (hotelOptions[l][2]), '.2f'))
         else:
           prices.append(hotelOptions[l][2])
+    #Printing the result of each desiredPlace 
     print((', ').join(str(x) for x in sorted(prices)) if len(prices) > 0 else 'None')
 
 N, Q = input().split(" ")
